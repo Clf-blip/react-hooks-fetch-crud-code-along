@@ -6,11 +6,11 @@ function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   function handleDarkModeClick() {
-    setIsDarkMode((isDarkMode) => !isDarkMode);
+    setIsDarkMode((prevMode) => !prevMode); // Simplified toggle logic
   }
 
   return (
-    <div className={"App " + (isDarkMode ? "dark" : "light")}>
+    <div className={isDarkMode ? "App dark" : "App light"}> {/* Conditional class for dark/light mode */}
       <Header isDarkMode={isDarkMode} onDarkModeClick={handleDarkModeClick} />
       <ShoppingList />
     </div>

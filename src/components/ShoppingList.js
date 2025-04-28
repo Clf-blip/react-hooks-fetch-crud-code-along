@@ -11,15 +11,19 @@ function ShoppingList() {
     setSelectedCategory(category);
   }
 
+  function handleAddItem(newItem) {
+    setItems((prevItems) => [...prevItems, newItem]); // Add new item to the list
+  }
+
   const itemsToDisplay = items.filter((item) => {
     if (selectedCategory === "All") return true;
 
-    return item.category === selectedCategory;
+    return item.category === selectedCategory; // Filter based on selected category
   });
 
   return (
     <div className="ShoppingList">
-      <ItemForm />
+      <ItemForm onAddItem={handleAddItem} /> {/* Pass handleAddItem function */}
       <Filter
         category={selectedCategory}
         onCategoryChange={handleCategoryChange}
@@ -34,3 +38,4 @@ function ShoppingList() {
 }
 
 export default ShoppingList;
+

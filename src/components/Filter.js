@@ -6,7 +6,7 @@ function Filter({ category, onCategoryChange }) {
       <select
         name="filter"
         value={category}
-        onChange={(e) => onCategoryChange(e.target.value)}
+        onChange={(e) => onCategoryChange(e.target.value)} // Correctly handle category change
       >
         <option value="All">Filter by category</option>
         <option value="Produce">Produce</option>
